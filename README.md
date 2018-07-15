@@ -1,14 +1,11 @@
 # Cows-and-Bulls
 
-# Simple simulation of a cows and bulls game
+Simple simulation of a cows and bulls game
 
 import random
-
 randNum = str(random.randint(1000, 9999))
 randList = list(randNum)
-
 print(randList)
-
 while True:
     playerInput = input("Input your guess: ")
     
