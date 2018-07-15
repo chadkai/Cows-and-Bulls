@@ -10,6 +10,7 @@ print(randList)
 
 while True:
     playerInput = input("Input your guess: ")
+    
     try:
         playerInput = int(playerInput)
     except ValueError:
@@ -17,10 +18,10 @@ while True:
     if len(str(playerInput)) > 4:
         print("Please enter a valid 4 digit guess.")
     playerList = list(str(playerInput))
-
+    
     c = 0
     b = 0
-
+    
     if playerList != randList:
         for i in playerList:
             if i in randList:
