@@ -1,2 +1,2 @@
 # Cows-and-Bulls
-Simple simulation of a cows and bulls game
+Repository for my practice python projects
