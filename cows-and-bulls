@@ -1,0 +1,47 @@
+# Randomly generate a 4-digit number. Ask the user to guess a 4-digit number. 
+# For every digit that the user guessed correctly in the correct place, they have a “cow”. 
+# For every digit the user guessed correctly in the wrong place is a “bull.” 
+# Every time the user makes a guess, tell them how many “cows” and “bulls” they have. 
+# Once the user guesses the correct number, the game is over. 
+# Keep track of the number of guesses the user makes throughout the game and tell the user at the end.
+
+# Generating a random 4-digit number
+import random
+randNum = str(random.randint(1000, 9999))
+randList = list(randNum)
+
+# Using a variable to keep count of guesses
+g = 1
+
+# Forming a while loop for the guessing game
+while True:
+    playerInput = input("Input your guess: ")
+    
+    # Filtering out potential errors
+    try:
+        playerInput = int(playerInput)
+    except ValueError:
+        print("That's not an integer!")
+    if len(str(playerInput)) > 4:
+        print("Please enter a valid 4 digit guess.")
+    playerList = list(str(playerInput))
+    
+    # Keeping count of cows and bulls
+    c = 0
+    b = 0
+    
+    if playerList != randList:
+        for i in playerList:
+            if i in randList:
+                if playerList.index(i) == randList.index(i):
+                    c += 1
+                else:
+                    b += 1
+        print("Cows: {}, Bulls: {}".format(c,b))
+        g += 1
+        continue
+    else:
+        print("You got the correct answer!")
+        break
+
+print("Guesses: {}".format(g))
