@@ -5,11 +5,16 @@ import random
 playerInput = input("Please input number of dies and sides: ")
 
 def dice(str):
+    # Parsing user input
     num, sides = str.split('d')
     num = int(num)
     sides = int(sides)
+    
+    # Initializing values and lists
     val = 0
     c = []
+    
+    # Looping and interating
     for i in range(0,num):
         value = random.randint(1,sides)
         c.append(value)
