@@ -1,2 +1,2 @@
-# Cows-and-Bulls
+# Practice
 Repository for my practice python projects
