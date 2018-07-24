@@ -1,0 +1,19 @@
+# Challenge Description: https://old.reddit.com/r/dailyprogrammer/comments/8s0cy1/20180618_challenge_364_easy_create_a_dice_roller/
+
+import random
+
+playerInput = input("Please input number of dies and sides: ")
+
+def dice(str):
+    num, sides = str.split('d')
+    num = int(num)
+    sides = int(sides)
+    val = 0
+    c = []
+    for i in range(0,num):
+        value = random.randint(1,sides)
+        c.append(value)
+        val += value
+    return c, val
+
+print(dice(playerInput))
