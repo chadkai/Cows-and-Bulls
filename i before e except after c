@@ -1,0 +1,35 @@
+# Challenge Link: https://old.reddit.com/r/dailyprogrammer/comments/8q96da/20180611_challenge_363_easy_i_before_e_except/
+def check(string):
+    newList = [i for i in string]
+    if 'c' in string:
+        if 'ie' in string:
+            if newList.index("c") == (newList.index("i")-1):
+                return False
+            else:
+                return True
+        elif 'ei' in string:
+            if newList.index("c") == (newList.index("e") - 1):
+                return True
+            elif newList.index("c") > newList.index("i"):
+                return False
+            else:
+                return True
+        else:
+            return True
+    else:
+        return True
+
+userInput = str(input("Please input a word: "))
+
+print(check(userInput))
+
+import requests
+
+r = requests.get('https://norvig.com/ngrams/enable1.txt')
+data = r.text
+q = 0
+for i in data.splitlines():
+    if check(i) == False:
+        q += 1
+        print(i)
+print(q)
