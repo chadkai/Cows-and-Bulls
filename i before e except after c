@@ -23,6 +23,7 @@ userInput = str(input("Please input a word: "))
 
 print(check(userInput))
 
+# Bonus 1
 import requests
 
 r = requests.get('https://norvig.com/ngrams/enable1.txt')
