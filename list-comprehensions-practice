@@ -1,4 +1,5 @@
 import random
+print(list(filter((lambda x: x % 9 == 0), list(random.randint(1, 1001) for i in range(100)))))
 
 # First two challenges are from derek banas' python tutorials
 
@@ -13,7 +14,7 @@ print([i for i in range(1,1000) if i % 7 ==0])
 print([i for i in range(1,1000) if '3' in str(i)])
 
 # Count the number of spaces in a string
-string = "Ha Ha Ha Ha hahahahaha"
+string = "The quick brown fox jumps over the lazy dog"
 print([i for i in string.split(' ')])
 
 # Remove all of the vowels in a string
@@ -21,3 +22,15 @@ print([i for i in list(string) if i != 'a' and 'e' and 'i' and 'o' and 'u'])
 
 # Find all of the words in a string that are less than 4 letters
 print([i for i in string.split(' ') if len(i) < 4])
+
+# Use a list comprehension to count the length of each word in a sentence.
+print([(word, len(word)) for word in string.split(' ')])
+
+# Use a dictionary comprehension to count the length of each word in a sentence.
+print({word: len(word) for word in string.split(' ')})
+
+# Use a nested list comprehension to find all of the numbers from 1-1000 that are divisible by any single digit besides 1 (2-9)
+print([x for x in range(1,1001) if [i for i in range(2,10) if x % i ==0]])
+
+# For all the numbers 1-1000, use a nested list/dictionary comprehension to find the highest single digit any of the numbers is divisible by
+print({num:max([div for div in range(1,10) if num % div == 0]) for num in range(1,1001)})
