@@ -1,0 +1,12 @@
+# Challenge: https://www.reddit.com/r/dailyprogrammer/comments/8g0iil/20180430_challenge_359_easy_regular_paperfold/
+# Will do this challenge using a recursive function
+
+def paperfold(i):
+    if i == 0:
+        return '1'
+    elif i > 0:
+        return paperfold(i-1) + paperfold(i-1) + '0'
+    else:
+        return "Please input a valid value"
+
+print(paperfold(8))
