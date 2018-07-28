@@ -1,0 +1,25 @@
+# Link to challenge: https://www.reddit.com/r/dailyprogrammer/comments/879u8b/20180326_challenge_355_easy_alphabet_cipher/
+
+alphastring = 'abcdefghijklmnopqrstuvwxyz'
+
+keyword,uncodedmsg = input("Input: ").split(' ')
+
+uncodedmsgList = [i for i in uncodedmsg]
+
+def sliceto(i,j):
+    return (i*(len(j)//len(i) + 1))[:len(j)]
+
+keywordList = [i for i in sliceto(keyword, uncodedmsg)]
+alphaList = [letter for letter in alphastring]
+codeletterList = []
+
+for i in range(0,len(uncodedmsgList)):
+    letter = uncodedmsgList[i]
+    emptyList = []
+    emptyList += alphaList[alphaList.index(letter):alphaList.index('z')+1]
+    emptyList += alphaList[alphaList.index('a'):alphaList.index(letter)]
+    codeletter = emptyList[alphaList.index(keywordList[i])]
+    codeletterList.append(codeletter)
+
+print(''.join(codeletterList))
+
