@@ -1,0 +1,57 @@
+## Just redoing one of my previous courseworks that involved the newton-raphson method
+## Part 1
+# Defining the original function
+def y(d):
+    return -285*d**6 + 41*d**5 +74*d**4 + 123*d**3 +90*d**2+ 55*d + 20 - 31
+
+# Defining the differentiation of the original function
+def yprime(d):
+    return -1710*d**5 + 205*d**4 + 296*d**3 + 369*d**2 + 180*d + 55
+
+# Defining the Newton-Raphson function
+def newtonRaphson(x):
+    # To count the number of iterations
+    count = 0
+    while True:
+        # Newton-Raphson iterative equation
+        x2 = x - (y(x)/yprime(x))
+        count += 1
+        if abs(x2 - x) > 0.000011:
+            x = x2
+            print(x)
+            continue
+        else:
+            break
+    return x2, count
+
+# Setting an arbitrary initial value for the iteration
+print(newtonRaphson(1.07))
+
+
+## Part 2
+# Defining the original function
+def y2(d):
+    return 1028.61*(((1+d)**60) - 1) + 97662.6*d - 96000*d*((1+d)**60)
+
+# Defining the differentiation of the original function
+def y2prime(d):
+    return (1028.61*(60*((1+d)**59))) + 97662.6 - 96000*(((1+d)**60) + 60*d*((1+d)**59))
+
+# Defining the Newton-Raphson function
+def newtonRaphson2(x):
+    # To count the number of iterations
+    count = 0
+    while True:
+        # Newton-Raphson iterative equation
+        x2 = x - (y2(x)/y2prime(x))
+        count += 1
+        if abs(x2 - x) > 0.000011:
+            x = x2
+            print(x)
+            continue
+        else:
+            break
+    return x2, count
+
+# Setting an arbitrary initial value for the iteration
+print(newtonRaphson(0.008))
