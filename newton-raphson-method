@@ -29,6 +29,7 @@ print(newtonRaphson(1.07))
 
 
 ## Part 2
+## This part does not work too well, and I do not know why
 # Defining the original function
 def y2(d):
     return 1028.61*(((1+d)**60) - 1) + 97662.6*d - 96000*d*((1+d)**60)
