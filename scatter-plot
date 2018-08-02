@@ -1,0 +1,19 @@
+## Question 1 of BENG207P Coursework 2
+import matplotlib.pyplot as plt
+import csv
+
+v = {}
+
+with open('beng207p cw2.csv','r') as csvfile:
+    plots = csv.reader(csvfile, delimiter=',')
+    for row in plots:
+        v[int(row[0])] = [int(i) for i in row[1:8] if i != '']
+
+for key in v:
+    plt.scatter([key] * len(v[key]), v[key], label=key)
+
+plt.xlabel('Weekly Consumption Expenditure')
+plt.ylabel('Weekly Income')
+plt.title('BENG207P Question 1')
+plt.legend()
+plt.show()
